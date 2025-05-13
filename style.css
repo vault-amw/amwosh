@@ -184,8 +184,8 @@ main {
 .engage-dropdown .dropdown-menu {
     min-width: 80px;
 }
-/* Style for the Engage dropdown menu */
+/* Style for the About Us dropdown menu */
 .about-dropdown .dropdown-menu {
     min-width: 80px;
-    left: -50px;
+    left: -80px;
 }
