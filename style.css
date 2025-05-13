@@ -1,0 +1,191 @@
+/* General Styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8d7da;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    height: 75px; /* height for the header */
+    padding: 0 30px; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 30px;
+    
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    padding-right: 20px;
+}
+
+.header-nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #0d3b1e;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+    background-color: #b29ba1;
+    border-radius: 0px;
+    padding: 30px 10px;
+}
+
+/* Push main content down so it’s not hidden behind fixed header */
+main {
+    padding-top: 120px;
+    flex: 1;
+}
+
+/* Home Page */
+.home-page {
+    background-color: #fce7d8;
+    text-align: center;
+}
+
+.home-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.home-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #f8d7da;
+    padding: 15px 0;
+    text-align: center;
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icons a {
+    font-size: 24px;
+    color: #444;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #b76e79;
+}
+
+.footer-content p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Child Menus - Navigation tab */
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;      
+    top: 47px;
+    left: 0;
+    background-color: #edd7d7; 
+    opacity: 0.8;
+    min-width: 200px;
+    z-index: 1000;
+    padding: 10px; 
+    margin: 0; 
+    border-radius: 5px; 
+    list-style: none;
+    white-space: nowrap;
+    
+}
+.dropdown-menu li {
+    padding: 10px 15px; 
+    white-space: nowrap; 
+    
+}
+.dropdown-menu a:hover {
+    color: #ffffff; 
+    background-color: #6c757d; 
+    padding: 5px 5px;  
+}
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    text-align: left;
+}
+/* Style for the Engage dropdown menu */
+.engage-dropdown .dropdown-menu {
+    min-width: 80px;
+}
+/* Style for the Engage dropdown menu */
+.about-dropdown .dropdown-menu {
+    min-width: 80px;
+    left: -50px;
+}
