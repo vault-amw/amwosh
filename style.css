@@ -145,14 +145,13 @@ main {
 }
 
 /* Home Page */
-.home-page {
-    background-color: #f4dde7;
+
     /* background-image: linear-gradient(to bottom right, #c47ed6, #fce4e1); */
     /* background: url('amwosh-images/AMWoSH_Header.png') no-repeat center center; */
     /* background-size: cover; */
     /* background-attachment: fixed; */
     /* text-align: center; */
-}
+
 
 .home-container {
     max-width: 1000px;
@@ -256,7 +255,47 @@ main {
   display: none;
 }
 
+/*For Our Work Page */
+.our-work-page {
+    background-color: #fceef1;
+}
 
+.project-card {
+    background-color: #f8d7da;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.our-works-titles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 4rem;
+
+    /* Gradient text styles */
+    background: linear-gradient(to right, #f0707b, #ca6fe0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.our-works-subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 20px;
+    font-style: italic;
+}
 /* For mobile screens */
 @media (max-width: 890px) {
 
