@@ -49,7 +49,7 @@ function closeNav() {
 // Async load header and footer then bind events
 async function loadHeaderAndFooter() {
     try {
-        const headerRes = await fetch('/amwosh/Header');
+        const headerRes = await fetch('Header.html');
         const headerHTML = await headerRes.text();
         document.getElementById('site-header').innerHTML = headerHTML;
 
@@ -64,7 +64,7 @@ async function loadHeaderAndFooter() {
     }
 
     try {
-        const footerRes = await fetch('/amwosh/Footer');
+        const footerRes = await fetch('Footer.html');
         const footerHTML = await footerRes.text();
         document.getElementById('site-footer').innerHTML = footerHTML;
     } catch (err) {
