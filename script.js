@@ -32,8 +32,10 @@ function carousel() {
   }
   myIndex++;
   if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 2000); // Change image every 3 seconds
+  if (x.length > 0) {
+    x[myIndex-1].style.display = "block";  
+  }
+  setTimeout(carousel, 3000); // Change image every 3 seconds
 }
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
@@ -47,7 +49,7 @@ function closeNav() {
 // Async load header and footer then bind events
 async function loadHeaderAndFooter() {
     try {
-        const headerRes = await fetch('Header.html');
+        const headerRes = await fetch('/amwosh/Header');
         const headerHTML = await headerRes.text();
         document.getElementById('site-header').innerHTML = headerHTML;
 
@@ -62,7 +64,7 @@ async function loadHeaderAndFooter() {
     }
 
     try {
-        const footerRes = await fetch('Footer.html');
+        const footerRes = await fetch('/amwosh/Footer');
         const footerHTML = await footerRes.text();
         document.getElementById('site-footer').innerHTML = footerHTML;
     } catch (err) {
