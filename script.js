@@ -10,8 +10,8 @@ async function includeHTML(id, file) {
 }
 
 
-includeHTML('header', 'header.html');
-includeHTML('footer', 'footer.html');
+includeHTML('header', 'Header.html');
+includeHTML('footer', 'Footer.html');
 const slides = document.querySelectorAll('.intro .slide');
 let currentSlide = 0;
 const totalSlides = slides.length;
