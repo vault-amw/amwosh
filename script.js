@@ -1,91 +1,43 @@
-// Toggle main mobile menu
-function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-}
-
-function closeMenuIfClickedOutside(event) {
-    const navLinks = document.querySelector('.nav-links');
-    const hamburger = document.querySelector('.hamburger-menu');
-
-    if (
-        navLinks &&
-        hamburger &&
-        !navLinks.contains(event.target) &&
-        !hamburger.contains(event.target)
-    ) {
-        navLinks.classList.remove('active');
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.classList.remove('active');
-        });
-    }
-}
-//slideshow
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
+async function includeHTML(id, file) {
+  try {
+    const response = await fetch(file);
+    if (!response.ok) throw new Error(`Failed to load ${file}`);
+    const html = await response.text();
+    document.getElementById(id).innerHTML = html;
+  } catch (err) {
+    console.error(err);
   }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  if (x.length > 0) {
-    x[myIndex-1].style.display = "block";  
-  }
-  setTimeout(carousel, 3000); // Change image every 3 seconds
-}
-function myFunction(imgs) {
-  // Get the expanded image
-  var expandImg = document.getElementById("expandedImg");
-  // Get the image text
-  var imgText = document.getElementById("imgtext");
-  // Use the same src in the expanded image as the image being clicked on from the grid
-  expandImg.src = imgs.src;
-  // Use the value of the alt attribute of the clickable image as text inside the expanded image
-  imgText.innerHTML = imgs.alt;
-  // Show the container element (hidden with CSS)
-  expandImg.parentElement.style.display = "block";
-}
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
 }
 
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-}
-// Async load header and footer then bind events
-async function loadHeaderAndFooter() {
-    try {
-        const headerRes = await fetch('Header.html');
-        const headerHTML = await headerRes.text();
-        document.getElementById('site-header').innerHTML = headerHTML;
 
-        // After header is loaded, bind hamburger and dropdown toggles
-        const hamburger = document.querySelector('.hamburger-menu');
-        if (hamburger) {
-            hamburger.addEventListener('click', toggleMenu);
-        }
-        setupDropdownToggles(); // Bind dropdown toggle functionality
-    } catch (err) {
-        console.error('Failed to load header:', err);
-    }
+includeHTML('header', 'header.html');
+includeHTML('footer', 'footer.html');
+const slides = document.querySelectorAll('.intro .slide');
+let currentSlide = 0;
+const totalSlides = slides.length;
+const slideInterval = 3000; // 3 seconds per slide
 
-    try {
-        const footerRes = await fetch('Footer.html');
-        const footerHTML = await footerRes.text();
-        document.getElementById('site-footer').innerHTML = footerHTML;
-    } catch (err) {
-        console.error('Failed to load footer:', err);
-    }
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
 }
 
-// Run on DOM ready
-window.addEventListener('DOMContentLoaded', () => {
-    loadHeaderAndFooter();
-    document.addEventListener('click', closeMenuIfClickedOutside);
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+}
+
+// Initialize
+showSlide(currentSlide);
+setInterval(nextSlide, slideInterval);
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+
+  // Toggle hamburger animation (optional)
+  hamburger.classList.toggle('open');
 });
+
